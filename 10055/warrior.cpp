@@ -9,7 +9,7 @@ class Solution {
 public:
   Solution();
   void run();
-  int calculation(unsigned int lhs, unsigned int rhs);
+  unsigned int calculation(unsigned int lhs, unsigned int rhs);
 private:
   std::vector<pair<unsigned int,unsigned int>> v;
 };
@@ -32,8 +32,11 @@ void Solution::run() {
   }
 }
 
-int Solution::calculation(unsigned int lhs, unsigned int rhs) {
-  return lhs - rhs;
+unsigned int Solution::calculation(unsigned int lhs, unsigned int rhs) {
+  if (lhs > rhs)
+    return lhs - rhs;
+  else
+    return rhs - lhs;
 }
 
 int main() {
