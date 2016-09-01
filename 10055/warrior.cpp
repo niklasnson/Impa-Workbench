@@ -9,30 +9,31 @@ class Solution {
 public:
   Solution();
   void run();
-  void calculation(unsigned int lhs, unsigned int rhs);
+  void calculation(unsigned long long lhs, unsigned long long rhs);
 private:
-  std::vector<pair<unsigned int,unsigned int>> v;
+  std::vector<pair<unsigned long long,unsigned long long>> v;
 };
 
 Solution::Solution() {}
 void Solution::run() {
   string row;
-  while(getline(cin, row))
+  do
   {
-    unsigned int lhs;
-    unsigned int rhs;
+    unsigned long long lhs;
+    unsigned long long rhs;
     istringstream is(row);
     while(is >> lhs >> rhs)
     {
       v.push_back({lhs, rhs});
     }
-  }
+  } while(getline(cin, row));
+
   for (auto i : v) {
     calculation(i.first,i.second);
   }
 }
 
-void Solution::calculation(unsigned int lhs, unsigned int rhs) {
+void Solution::calculation(unsigned long long lhs, unsigned long long rhs) {
   if (lhs > rhs)
     cout << lhs - rhs << endl;
   else
